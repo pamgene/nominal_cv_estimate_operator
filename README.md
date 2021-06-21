@@ -1,50 +1,21 @@
-# Template R operator
-
-The `Template R operator` is a template repository for the creation of R operators in Tercen. An overview of steps for developing an operator are:
-
-1. create a github repo
-2. install tercen_studio
-3. login to tercen_studio
-4. git clone the newly created repo
-5. start developing in R in tercen_studio
-6. add R packages to the repo
-7. push to the github repo
-8. go to tercen and install the operator
-
-More information can be found in [Tercen app builder's guide](https://tercen.github.io/appbuilders-guide/).
-
-Below is the operator README standard structure:
+# nominal_cv_estimate_operator
 
 ##### Description
 
-The `Template R operator` is a template repository for the creation of R operators in Tercen.
-
-##### Usage
-
-Input projection|.
----|---
-`x-axis`        | type, description 
-`y-axis`        | type, description 
-`row`           | type, description 
-`column`        | type, description 
-`colors`        | type, description 
-`labels`        | type, description 
-
-Input parameters|.
----|---
-`input_var`        | parameter description
-
-Output relations|.
----|---
-`output_var`        | output relation
-`Operator view`        | view of the Shiny application
+`nominal_cv_estimate_operator` is an operator that estimates nominal CV's that can be used for setting a peptide cut-off. 
+Nominal CV's are estimated without the need of using technical replicates. In contrast, the App for Replicate QC measures nominal CVs based on the evaluation of technical replicates.
 
 ##### Details
 
-Details on the computation.
+* The CV's are estimated using the model for the CV as a function of signal level described for the Two Component Error Model. For estimating Sigma0 for this model
+it is assumed that a quantile of spots with the lowest signal does not show a signal in any included condition. Sigma0 is then estimated by the overall standard deviation of this quantile of spots. Sigma1 is set to an assumed value (instrument parameter) for the technical replication CV.
+
+* Default values for
+   - Quantile of lowest signal spots to use for estimating Sigma0: 0.1
+   - Assumed technical CV (Sigma1): 0.1
+  
+* Advanced users may edit the above values may by opening the app and changing the properties of the "Estimate Nominal CV" operator.
 
 ##### See Also
 
-[template_shiny_operator](https://github.com/tercen/template_shiny_operator)
-, [template_docker_operator](https://github.com/tercen/template_docker_operator)
-
+[STK_QC_app](https://github.com/tercen/STK_QC_app)
