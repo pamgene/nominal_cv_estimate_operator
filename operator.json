@@ -3,26 +3,25 @@
   "description": "Operator that estimates nominal CV's that can be used for setting a peptide cut-off.",
   "tags": ["cv", "pamgene"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/nominal_cv_estimate_operator"],
+  "urls": ["https://github.com/pamgene/nominal_cv_estimate_operator"],
   "properties": [
-  {
-    "kind": "DoubleProperty",
-    "name": "Quantile for low signal spots",
-    "defaultValue": 0.1,
-    "description": "Quantile for low signal spots"
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "High signal CV",
-    "defaultValue": 0.1,
-    "description": "High signal CV"
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "Nominal CV max",
-    "defaultValue": 1.0,
-    "description": "Nominal CV max"
-  }]
+    {
+      "kind": "DoubleProperty",
+      "name": "Quantile for low signal spots",
+      "defaultValue": 0.1,
+      "description": "Quantile for low signal spots"
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "High signal CV",
+      "defaultValue": 0.1,
+      "description": "High signal CV"
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "Nominal CV max",
+      "defaultValue": 1,
+      "description": "Nominal CV max"
+    }
+  ]
 }
-
-
